@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.utils.safestring import mark_safe
 
 from datetime import datetime
+from time import sleep
 import subprocess
 
 class MudarDataForm(forms.Form):
@@ -16,8 +17,11 @@ def data(request):
             data_formatada = f'{data.year}-{data.month}-{data.day}'
             hora_atual = datetime.now()
             hora_formatada = f'{hora_atual.hour}:{hora_atual.minute}:{hora_atual.second}'
-            print(hora_formatada)
-            comando = f"timedatectl set-ntp no & timedatectl set-time '{data_formatada} {hora_formatada}'"
+            comando = f"timedatectl set-ntp no"
+            subprocess.run(comando, shell=True)
+            #Espera o ntp desativar
+            sleep(2)
+            comando = f"timedatectl set-time '{data_formatada} {hora_formatada}'"
             subprocess.run(comando, shell=True)
             return render(request, 'data/data.html', {'form': form})
     else:
