@@ -1,6 +1,35 @@
 {% extends 'main.html' %}
 
 {% block content %}
-<h1>{{room.name}}</h1>
+<section class="bg-light text-dark p-5 p-lg-0 text-center text-sm-start">
+    <div class="container">
+      <div class="d-sm-flex align-items-center justify-content-between">
+        <div>
+          <h1>Room name: <span class="text-warning">{{room.name}}</span></h1>
+          <p class="lead my-4">
+            {% if room.description|length > 0 %}
+                {{room.description}}
+            {% else %}
+                No description provided
+            {% endif %}
+          </p>
+        </div>
+        <div class="d-sm-flex align-items-left">
+            <p class="lead my-2">
+               Host: <span class="text-warning">{{room.host}}</span>
+            </p>
+            <p class="lead my-2">
+                Topic: <span class="text-warning">{{room.host}}</span>
+            </p>
+            <p class="lead my-2">
+                Updated in: <span class="text-warning">{{room.host}}</span>
+            </p>
+            <p class="lead my-2">
+                Created in: <span class="text-warning">{{room.host}}</span>
+            </p>
+           </div>
+      </div>
+    </div>
+  </section>
 
 {% endblock content%}
