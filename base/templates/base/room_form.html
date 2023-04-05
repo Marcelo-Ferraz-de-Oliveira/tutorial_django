@@ -2,11 +2,14 @@
 
 
 {% block content %}
-<div>
-    <form action="" method="POST">
-        {% csrf_token %}
-        {{form.as_p}}
-        <input type="Submit" value="Submit" />
-    </form>
+<div class="container">
+    <div class="d-sm-flex align-items-center justify-content-between">
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="Submit" value="Submit" />
+        </form>
+    </div>
 </div>
+
 {% endblock content %}

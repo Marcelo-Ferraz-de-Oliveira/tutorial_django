@@ -14,10 +14,18 @@
 </head>
 
 <body class="pt-5">
-    {% include 'navbar.html' %}
- 
-    {% block content %}
-    {% endblock %}
+  {% include 'navbar.html' %}
+  <div class="container-fluid">
+    <div class="row flex-nowrap">
+      <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+        {% include "sidebar.html" %}
+      </div>
+      <div class="col py-3">
+        <section class="bg-light text-dark p-5 p-lg-0 text-center text-sm-start">
+          {% block content %}
+          {% endblock %}
+        </section>
+      </div>
   <footer>
     <!-- place footer here -->
   </footer>
