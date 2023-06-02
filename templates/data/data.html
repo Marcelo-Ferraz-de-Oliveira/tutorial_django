@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Mudar Data</title>
+        <script>
+            function atualizarData() {
+                var dataElemento = document.getElementById("data-atual");
+                var dataAtual = new Date();
+                dataElemento.innerHTML = dataAtual.toLocaleDateString();
+            }
+    
+            setInterval(atualizarData, 1000);
+        </script>
+    </head>
+<body>
+    <h1>Mudar Data</h1>
+    <p>Data atual: <span id="data-atual"></span></p>
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
